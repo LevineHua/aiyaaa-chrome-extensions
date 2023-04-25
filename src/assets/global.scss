@@ -1,0 +1,114 @@
+$--primary-color: red;
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 600px;
+  border-radius: 10px;
+  min-height: 600px;
+  margin: 0 auto;
+}
+* {
+  box-sizing: border-box;
+}
+.cb-page {
+  padding: 15px;
+}
+.cb-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cb-flex-inline {
+  display: inline-flex;
+}
+
+.cb-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.cb-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.cb-col-center {
+  align-items: center;
+}
+
+.cb-col-top {
+  align-items: flex-start;
+}
+
+.cb-col-bottom {
+  align-items: flex-end;
+}
+
+.cb-row-center {
+  justify-content: center;
+}
+
+.cb-row-left {
+  justify-content: flex-start;
+}
+
+.cb-row-right {
+  justify-content: flex-end;
+}
+
+.cb-row-between {
+  justify-content: space-between;
+}
+
+.cb-row-around {
+  justify-content: space-around;
+}
+
+.cb-text-left {
+  text-align: left;
+}
+
+.cb-text-center {
+  text-align: center;
+}
+
+.cb-text-right {
+  text-align: right;
+}
+
+.cb-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cb-single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+  .cb-flex-#{$i} {
+    flex: $i;
+  }
+}
+
+@mixin cb-n-line($n) {
+  line-height: 1.5;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  line-clamp: $n;
+  -webkit-box-orient: vertical;
+}
+.cb-double-line {
+  @include cb-n-line(2);
+}

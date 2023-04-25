@@ -1,0 +1,162 @@
+.markdown-body {
+	background-color: transparent;
+	font-size: 14px;
+
+	p {
+		white-space: pre-wrap;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	pre code,
+	pre tt {
+		line-height: 1.65;
+	}
+
+	.highlight pre,
+	pre {
+		background-color: #fff;
+	}
+
+	code.hljs {
+		padding: 0;
+	}
+
+	.code-block {
+		&-wrapper {
+			position: relative;
+			padding-top: 24px;
+		}
+
+		&-header {
+			position: absolute;
+			top: 5px;
+			right: 0;
+			width: 100%;
+			padding: 0 1rem;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			color: #b3b3b3;
+
+			&__copy{
+				cursor: pointer;
+				margin-left: 0.5rem;
+				user-select: none;
+				&:hover {
+					color: #65a665;
+				}
+			}
+		}
+	}
+}
+.text-red-500 {
+	color: red;
+}
+
+
+
+html.dark {
+
+	.highlight pre,
+	pre {
+		background-color: #282c34;
+	}
+}
+
+// 加载动画一
+.balls {
+	width: 4em;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 2em;
+}
+
+.balls div {
+	width: 0.8em;
+	height: 0.8em;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+.balls div:nth-of-type(1) {
+	transform: translateX(-100%);
+	animation: left-swing 0.5s ease-in alternate infinite;
+}
+
+.balls div:nth-of-type(3) {
+	transform: translateX(-95%);
+	animation: right-swing 0.5s ease-out alternate infinite;
+}
+
+@keyframes left-swing {
+
+	50%,
+	100% {
+		transform: translateX(95%);
+	}
+}
+
+@keyframes right-swing {
+	50% {
+		transform: translateX(-95%);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+// 加载动画二
+.text-loading{
+	position:relative;
+	width: 4em;
+	height: 22px;
+	margin: 0 auto;
+}
+.text-loading span{
+	display:block;
+	bottom:0px;
+	width: 9px;
+	height: 5px;
+	background:#999;
+	position:absolute;
+	animation: text_loading 1.5s  infinite ease-in-out;
+}  
+.text-loading span:nth-child(2){
+	left:11px;
+	animation-delay: .2s;  
+}
+.text-loading span:nth-child(3){
+	left:22px;
+	animation-delay: .4s;
+}
+.text-loading span:nth-child(4){
+	left:33px;
+	animation-delay: .6s;
+}
+.text-loading span:nth-child(5){
+	left:44px;
+	animation-delay: .8s;
+}
+@keyframes text_loading {
+	0% {height:5px;transform:translateY(0px);background:#999;}
+	25% {height:30px;transform:translateY(15px);background:#666;}
+	50% {height:5px;transform:translateY(0px);background:#999;}
+	100% {height:5px;transform:translateY(0px);background:#999;}
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.mr-1 {
+  margin-right: 10px;
+}

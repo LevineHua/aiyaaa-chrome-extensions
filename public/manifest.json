@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AIyaaa一下",
+  "description": "AIyaaa一下，我是基于 Chat-GPT 的“搜索引擎”，立志让你摆脱百度、Google",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "ai-yaaa-logo.png",
+      "24": "ai-yaaa-logo.png",
+      "32": "ai-yaaa-logo.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "declarativeContent",
+    "scripting"
+  ],
+  "host_permissions": [ 
+    "*://*/*", 
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/main.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["inject/index.js"],
+      "matches": [
+        "*://gptlink.com.cn:*/*",
+        "*://gpt-link.com:*/*"
+      ],
+      "runAt": "document_start"
+    }
+  ]
+}
