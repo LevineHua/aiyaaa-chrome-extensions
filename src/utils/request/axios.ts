@@ -30,12 +30,12 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response: AxiosResponse): any => {
     if (response.status === 200) {
-      // console.log(response)
       // 如果 response.data 为字符串类型，则默认视为聊天返回的内容
       if (isString(response.data))
         return response.data
 
       const { err_code, err_msg, data } = response.data
+      
       if (err_code) {
 
         switch (err_code) {

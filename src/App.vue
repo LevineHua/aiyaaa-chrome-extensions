@@ -9,7 +9,7 @@ onMounted(() => {
   authStore.getAuthInfo()
 })
 
-chrome.runtime.onMessage.addListener((req) => {
+chrome.runtime && chrome.runtime.onMessage.addListener((req) => {
   const { backgroundMessage } = req
   if (backgroundMessage === 'upload') {
     authStore.getAuthInfo()

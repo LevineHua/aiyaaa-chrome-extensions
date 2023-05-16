@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import { resolve } from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -12,14 +13,23 @@ export default defineConfig({
     }
   },
   build: {
-    // rollupOptions: {
-    //   input: {
-    //     background: './src/background/main.ts',
-    //     main: './src/main.ts'
-    //   },
-    //   output: {
-    //     entryFileNames: 'js/[name].js'
-    //   }
-    // }
+    outDir: 'AIyaaa一下',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        document: 'src/document/index.html'
+      },
+      // output: {
+      //   entryFileNames: '[name]/index.[hash].js',
+      //   chunkFileNames: '[name]/[hash].js',
+      //   assetFileNames: '[name]/[hash][extname]',
+      //   document: {
+      //     dir: 'AIyaaa一下/document',
+      //     entryFileNames: 'index.[hash].js',
+      //     chunkFileNames: '[name].[hash].js',
+      //     assetFileNames: '[name].[hash][extname]'
+      //   }
+      // }
+    }
   }
 })

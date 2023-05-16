@@ -31,7 +31,7 @@ function loopGetAuth() {
         })
       }
     }
-  }, 100)
+  }, 50)
 }
 
 // 终止循环

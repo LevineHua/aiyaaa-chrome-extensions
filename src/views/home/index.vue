@@ -7,6 +7,8 @@ import { useCopyCode } from './hooks/useCopyCode'
 import { copyText } from '@/utils/format'
 import Header from '@/components/Header/index.vue'
 import { useMessageEvent } from './hooks/useMessageEvent'
+import { useCommand } from './hooks/useCommand.ts'
+import { useFilterTag } from './hooks/useFilterTag.ts'
 
 const { VITE_APP_DOMAIN_URL } = import.meta.env
 
@@ -24,6 +26,8 @@ const error_code = ref(0)
 const { scrollRef, scrollToBottom } = useScroll()
 useCopyCode()
 useMessageEvent()
+const { enableFilterTags, enableFilterKeywords, enableTags, getSiteTags } = useFilterTag()
+const { additionalPrompt } = useCommand(enableFilterTags, enableFilterKeywords, enableTags)
 
 function handleEnter(event: KeyboardEvent) {
   if (event.key === 'Enter' && !event.shiftKey) {
@@ -39,7 +43,7 @@ function handleSubmit() {
 }
 
 async function onConversation(content?: any) {
-  const message = content || prompt.value
+  let message = content || prompt.value
 
   if (loading.value)
     return
@@ -50,14 +54,19 @@ async function onConversation(content?: any) {
   loading.value = true
   loaded.value = false
 
+
+
   try {
+    message = await additionalPrompt(message)
     await fetchChatAPIProcess({
       prompt: message,
       last_id: last_id.value,
       onDownloadProgress: ({ event }) => {
         const xhr = event.target
         const { responseText } = xhr
+        
         loading.value = false
+        
         try {
           const responseObjs = JSON.parse(`[${responseText.substring(0, responseText.length - 1)}]`)
 
@@ -80,8 +89,10 @@ async function onConversation(content?: any) {
     loaded.value = true
     error_code.value = 0
   } catch (error) {
+    console.log(error, 'error');
+    
     const { err_msg, err_code } = error
-    chatMessage.value = err_msg || ''
+    chatMessage.value = err_msg || '发生异常，请稍后重试或联系开发者'
     error_code.value = err_code
   }
   finally {
@@ -95,6 +106,10 @@ function toAiyaaa() {
     url: VITE_APP_DOMAIN_URL
   })
 }
+
+onMounted(() => {
+  getSiteTags()
+})
 
 </script>
 
