@@ -72,6 +72,10 @@
     })
   }
 
+  function openOptions() {
+    chrome.runtime.openOptionsPage();
+  }
+
   function logout() {
     authStore.resetAuthInfo()
     showMenu.value = false
@@ -90,6 +94,7 @@
       
       <div class="header-menu" :style="getMenuStyle" @mouseover="showMenu = true" @mouseout="showMenu = false">
         <div class="menu-item" @click="openPage('/user')">个人中心</div>
+        <div class="menu-item" @click="openOptions">使用文档</div>
         <div class="menu-item" @click="logout">退出登录</div>
       </div>
     </div>
