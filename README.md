@@ -60,5 +60,5 @@
 
 ### 指令使用文档
 
-[《AIyaaa一下 - 使用文档》](src/document/markdown/index.md)
+[《AIyaaa一下 - 使用文档》](https://github.com/LevineHua/aiyaaa-chrome-extensions/blob/main/src/document/makdown/index.md)
 
