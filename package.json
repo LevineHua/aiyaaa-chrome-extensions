@@ -13,8 +13,17 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@bytemd/plugin-breaks": "^1.21.0",
+    "@bytemd/plugin-footnotes": "^1.12.4",
+    "@bytemd/plugin-frontmatter": "^1.21.0",
+    "@bytemd/plugin-gemoji": "^1.21.0",
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/plugin-highlight": "^1.21.0",
+    "@bytemd/plugin-medium-zoom": "^1.21.0",
     "@traptitech/markdown-it-katex": "^3.6.0",
+    "bytemd": "^1.21.0",
     "highlight.js": "^11.7.0",
+    "juejin-markdown-themes": "^1.29.7",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

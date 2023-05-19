@@ -27,6 +27,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  server: {
+    host: true
+  },
   build: {
     outDir: 'AIyaaa一下',
     rollupOptions: {
