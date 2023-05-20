@@ -17,8 +17,13 @@ export function useFilterTag() {
     return new Promise(resolve => {
       chrome.tabs.query({ active: true, currentWindow: true }, async (tabs: any) => {
         const url = new URL(tabs[0].url);
-        const hostname = url.hostname;
-        resolve(hostname)
+        console.log(url);
+
+        const origin = url.origin.match(/^https?:\/\/(?:[^./]+\.)?([^./]+\.[^./]+)/i)
+        const domain = origin ? origin[1] : null;
+        
+        // const hostname = url.hostname;
+        resolve(domain)
       });
     })
   }

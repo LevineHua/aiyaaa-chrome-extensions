@@ -38,25 +38,15 @@ export function useCommand(enableFilterTags: string[], enableFilterKeywords: str
           {
             target: { tabId: currentTab.id },
             function: () => {
-              // 截取出需要的内容
-              const tags: string[] = enableTags || []
-              if (tags.length) {
-                const box = document.createElement('div')
-                let htmlContent: any = ''
-                for (let index = 0; index < tags.length; index++) {
-                  const html = document.querySelector(tags[index])?.outerHTML || ''
-                  htmlContent = htmlContent + html
-                }
-                box.innerHTML = htmlContent
-                return htmlContent ? box.outerHTML : document.body.outerHTML
-              } else {
-                return document.body.outerHTML
-              }
+              return document.body.outerHTML
             }
           },
           (result: any) => {
+            
             const htmlContent = result[0].result || '';
 
+            console.log('htmlContent', htmlContent);
+            
             // const needRemoveTag = [
             //   'footer', 'header', '.menu', '.head', '.aside', '.sidebar',
             //   '.content_right', '.result-molecule', '.mask', '.popup-box', '#head', '#content_right', '#menu', "#aging-total-page", '#result_tts_player',
@@ -73,8 +63,20 @@ export function useCommand(enableFilterTags: string[], enableFilterKeywords: str
             const box = document.createElement('div')
             box.innerHTML = htmlContent
 
-            
-            
+            // 截取出需要的内容
+            const tags = unref(enableTags) || []
+            if (tags.length) {
+              const newBox = document.createElement('div')
+              let newHtmlContent = ''
+              for (let index = 0; index < tags.length; index++) {
+                const html = box.querySelector(tags[index])?.outerHTML || ''
+                newHtmlContent = newHtmlContent + html
+              }
+              newBox.innerHTML = newHtmlContent
+
+              box.innerHTML = newHtmlContent || htmlContent
+            }
+
             // 移除需要过滤的
             for (let i = 0; i < needRemoveTag.length; i++) {
               const tag = needRemoveTag[i];

@@ -34,9 +34,5 @@
       ],
       "runAt": "document_start"
     }
-  ],
-  "options_ui": {
-    "page": "document.html",
-    "open_in_tab": true
-  }
+  ]
 }
