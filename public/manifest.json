@@ -12,7 +12,6 @@
     }
   },
   "permissions": [
-    "activeTab",
     "tabs",
     "storage",
     "declarativeContent",
@@ -29,10 +28,14 @@
     {
       "js": ["inject/index.js"],
       "matches": [
-        "*://gptlink.com.cn:*/*",
-        "*://gpt-link.com:*/*"
+        "*://*.gptlink.com.cn/*",
+        "*://*.gpt-link.com/*"
       ],
       "runAt": "document_start"
     }
-  ]
+  ],
+  "options_ui": {
+    "page": "document.html",
+    "open_in_tab": true
+  }
 }
