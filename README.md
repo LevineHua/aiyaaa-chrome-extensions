@@ -2,17 +2,20 @@
 
 `AIyaaa一下`是一个类似百度、Google 的搜索引擎，它是基于 ChatGPT  3.5的 Chrome 扩展程序。它除了能完成基础的搜索任务，还有更多可玩的指令可以使用。
 
-### 准备工作
+## 安装
 
-1. 下载插件包（chrome 应用市场开发者申请中，以后可以直接在应用市场下载）
+### 一键自动安装（需翻墙）
 
-   链接: https://pan.baidu.com/s/17LSCB7a6MTlKvnsliCwncQ?pwd=wlh2 提取码: wlh2
+[Chrome 应用市场](https://chrome.google.com/webstore/detail/aiyaaa%E4%B8%80%E4%B8%8B/ihplgloeiohhhdkehpchgadmimnjjdmf/related?hl=zh-CN)
 
-2. chrome 浏览器
+### 压缩包安装
 
-### 安装插件
+首先下载插件包
 
-首先解压下载下来的插件包
+* 百度网盘：链接: https://pan.baidu.com/s/17LSCB7a6MTlKvnsliCwncQ?pwd=wlh2 提取码: wlh2
+* GitHub：https://github.com/LevineHua/aiyaaa-chrome-extensions/blob/main/AIyaaa%E4%B8%80%E4%B8%8B.zip
+
+解压下载下来的插件包
 
 然后打开[chrome 浏览器扩展程序](chrome://extensions/)，打开开发者模式
 
@@ -35,7 +38,7 @@
 3. `yarn build`
 4. 安装步骤同上，将打包后的`AIyaaa一下`文件通过扩展管理打开
 
-### 体验“AIyaaa 一下”
+## 体验“AIyaaa 一下”
 
 打开插件后是这样的
 
@@ -51,14 +54,14 @@
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d5fdc22d0ba4e23a0da52611c84ece5~tplv-k3u1fbpfcp-watermark.image?)
 
-### 功能
+## 功能
 
 * 搜索功能
 * 复制内容
 * 总结网页内容
 * 文生图功能（规划中）
 
-### 指令使用文档
+## 指令使用文档
 
 [《AIyaaa一下 - 使用文档》](https://github.com/LevineHua/aiyaaa-chrome-extensions/blob/main/src/document/makdown/index.md)
 
