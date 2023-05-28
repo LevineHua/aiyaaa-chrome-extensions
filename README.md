@@ -54,6 +54,10 @@
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d5fdc22d0ba4e23a0da52611c84ece5~tplv-k3u1fbpfcp-watermark.image?)
 
+![image.png](./screenshots/WX20230528-152344@2x.png)
+
+![image.png](./screenshots/WX20230528-152744@2x.png)
+
 ## 功能
 
 * 搜索功能
